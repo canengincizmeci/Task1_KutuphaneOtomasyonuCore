@@ -1,0 +1,28 @@
+﻿@model List<ktpOtoWithCore.Models.MyModels.Kategori>
+@{
+    ViewData["Title"] = "Kategoriler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Kategori</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ktg in Model)
+            {
+                <tr>
+                    <td>@ktg.Id</td>
+                    <td>@ktg.KategoriAd</td>
+                    <td><a href="@Url.Action("KategoriSil","Home",new {kategori_id=ktg.Id})" class="btn btn-danger">Sil</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="@Url.Action("KategoriEkle","Home")" class="btn btn-success">Ekle</a>
+</div>

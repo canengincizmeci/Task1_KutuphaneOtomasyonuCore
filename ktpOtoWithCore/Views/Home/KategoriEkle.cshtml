@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "KategoriEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/ekle.css" rel="stylesheet" />
+
+<div class="container">
+    <form action="@Url.Action("KategoriEkle","Home")" method="post">
+        @Html.AntiForgeryToken()
+        <label>
+
+            kategori:  <input type="text" class="form-control" name="kategori_ad" />
+        </label>
+        <br />
+
+        <button type="submit" class="btn btn-success">Ekle</button>
+
+    </form>
+</div>

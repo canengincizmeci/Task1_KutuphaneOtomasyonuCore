@@ -1,0 +1,36 @@
+﻿@model Kategoriler
+@{
+    ViewData["Title"] = "Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/ekle.css" rel="stylesheet" />
+<div class="container">
+    <form action="@Url.Action("Ekle","Home")" method="post">
+        @Html.AntiForgeryToken()
+        <label>
+
+            Kitap Ad:  <input type="text" class="form-control" name="kitap_ad" />
+        </label>
+        <br />
+        <label>
+            Yazar:
+            <input type="text" name="yazar" class="form-control" />
+        </label>
+        <br />
+        <label>
+            Sayfa Sayısı:
+            <input type="text" name="sayfa_sayisi" class="form-control" />
+        </label>
+        <br />
+        <label>
+            @Html.DropDownListFor(m => m.Id, (List<SelectListItem>)ViewBag.Ktg)
+        </label>
+        <br />
+
+
+
+        <button type="submit" class="btn btn-success">Gönder</button>
+
+    </form>
+</div>
+

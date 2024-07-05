@@ -1,0 +1,33 @@
+﻿@model List<ktpOtoWithCore.Models.MyModels.Kitap>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<link href="~/css/homeindex.css" rel="stylesheet" />
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Kitap Ad</th>
+                <th>Yazar</th>
+                <th>Kategori</th>
+                <th>Sayfa Sayısı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var kitap in Model)
+            {
+                <tr>
+                    <td>@kitap.Id</td>
+                    <td>@kitap.KitapAd</td>
+                    <td>@kitap.Yazar</td>
+                    <td>@kitap.KategoriAd</td>
+                    <td>@kitap.SayfaSayisi</td>
+                    <td><a href="@Url.Action("Sil","Home",new {kitap_id=kitap.Id})" class="btn btn-danger">Sil</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="@Url.Action("Ekle","Home")" class="btn btn-success">Ekle</a>
+</div>
